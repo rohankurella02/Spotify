@@ -32,9 +32,9 @@ app.use("/user-api",userApp);
 app.use("/podcast-api",podcastApp);
 
 // Defining routes
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello, World!');
+// });
 
 //dealing with page refresh
 app.use('*',(request,response)=>{
