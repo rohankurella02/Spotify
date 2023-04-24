@@ -5,7 +5,7 @@ const mclient=require("mongodb").MongoClient;
 require("dotenv").config;
 // integrating front and back
 const path=require('path');
-app.use(express.static(path.join(__dirname,"build")))
+app.use(express.static(path.join(__dirname,"..", "..", "build")))
 // db connection url
 const DBurl= 'mongodb+srv://mydatabase:mydatabase@mycluster.3qnvw.mongodb.net/?retryWrites=true&w=majority';
 
@@ -43,7 +43,7 @@ app.use("/podcast-api",podcastApp);
 
 //dealing with page refresh
 app.use('*',(request,response)=>{
-    response.sendFile(path.join(__dirname,'build/index.html'))
+    response.sendFile(path.join(__dirname,"..", "..", 'build/index.html'))
 })
 
   //handling invalid paths
