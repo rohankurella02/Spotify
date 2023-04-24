@@ -10,9 +10,9 @@ app.use(express.static(path.join(__dirname,"./build")))
 const DBurl= 'mongodb+srv://mydatabase:mydatabase@mycluster.3qnvw.mongodb.net/?retryWrites=true&w=majority';
 
 // deployment
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-})
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+// })
 
 // connect with mongodb server
 mclient.connect(DBurl)
