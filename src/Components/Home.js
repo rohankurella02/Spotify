@@ -11,11 +11,11 @@ function Home() {
     <Container>
     <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1982px-Spotify_icon.svg.png' 
     width="50px" height="50px" className='me-5'/>
-      <Navbar.Brand href="#home">Spotify</Navbar.Brand>
+      <Navbar.Brand href="/">Spotify</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto ms-5">
-          <Nav.Link href="#features "><ImHome/>Home</Nav.Link>
+          <Nav.Link href="/"><ImHome/>Home</Nav.Link>
         <Form className="d-flex ms-5">
         <Form.Control
           type="search"
