@@ -42,15 +42,15 @@ podcastApp.get("/getpodcasts", expressAsyncHandler(async(request,response)=>{
 }));
 
 // get particular genre
-podcastApp.get("/getpodcast/:podcastName",expressAsyncHandler(async(request,response)=>{
+podcastApp.get("/getpodcast/:category",expressAsyncHandler(async(request,response)=>{
     // get podcast collection object
     let podcastCollectionObject= request.app.get("podcastCollectionObject")
-    //get podcastname to be found
-    let pname=request.params.podcastName
-    // get podcast by podcast name
-    let podcasts=await podcastCollectionObject.find({podcastName:pname})
+    //get category to be found
+    let cat=request.params.category;
+    // get podcasts by podcast category
+    let podcasts=await podcastCollectionObject.find({category:cat}).toArray();
     // send response
-    //if podcast not found it receives null
+    //if podcasts not found it receives null
     if(podcasts===null){
       response.send({message:"podcasts does not exist"})
     }
@@ -59,6 +59,25 @@ podcastApp.get("/getpodcast/:podcastName",expressAsyncHandler(async(request,resp
     }
   
   }))
+
+// get most viewed podcasts
+podcastApp.get("/mostviewed",expressAsyncHandler(async(request,response)=>{
+  // get podcast collection object
+  let podcastCollectionObject= request.app.get("podcastCollectionObject")
+  // get podcasts by most viewed
+  // db.collection.find( { qty: { $gt: 4 } } )
+  let podcasts=await podcastCollectionObject.find({views:{$gt:500000}}).toArray();
+  // send response
+  //if podcasts not found it receives null
+  if(podcasts===null){
+    response.send({message:"podcasts does not exist"})
+  }
+  else{ // else send podcast object as payload
+    response.send({message:"found",payload:podcasts})
+  }
+
+}))
+
 
 // add a podcast
 podcastApp.post("/create-podcast", expressAsyncHandler(async (request, response) => {
