@@ -266,3 +266,17 @@ font-weight: 10rem ;
   margin:auto !important;
   padding: auto !important;
 }
+
+.player-wrapper {  
+  flex: 6;
+}
+.player-wrapper2{
+  flex:6;
+}
+
+.VideoPage{
+  height: 90vh;
+  align-items: center;
+  flex-wrap: wrap;
+  height: fit-content;
+}
