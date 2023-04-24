@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GoogleLogin from "react-google-login";
-import "./GoogleLogin.scss";
+import "./Login.scss";
 
 export default function GoogleLogin() {
   const [showLogin, setShowLogin] = useState(true);
